@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/product_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.product_info.ProductInfoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/product_info_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="16dp"
+            android:textColor="@color/grey_dark"
+            android:text="NAME PRODUCT"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/product_info_gramms"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/product_info_kcal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:text="100500 ккал"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/product_info_prots"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product_info_name" />
+
+        <TextView
+            android:id="@+id/product_info_prots"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:text="13,5 г белки"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/product_info_kcal"
+            app:layout_constraintEnd_toStartOf="@+id/product_info_fats"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/product_info_kcal"
+            app:layout_constraintTop_toTopOf="@+id/product_info_kcal" />
+
+        <TextView
+            android:id="@+id/product_info_fats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:text="12,5 г жиры"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/product_info_prots"
+            app:layout_constraintEnd_toStartOf="@+id/product_info_carbos"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/product_info_prots"
+            app:layout_constraintTop_toTopOf="@+id/product_info_prots" />
+
+        <TextView
+            android:id="@+id/product_info_carbos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:text="30 г углеводы"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/product_info_fats"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/product_info_fats"
+            app:layout_constraintTop_toTopOf="@+id/product_info_fats" />
+
+        <EditText
+            android:id="@+id/product_info_gramms"
+            android:layout_width="96dp"
+            android:layout_height="0dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="31"
+            android:textAlignment="center"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@+id/product_info_name"
+            app:layout_constraintEnd_toStartOf="@+id/product_info_secondary"
+            app:layout_constraintStart_toEndOf="@+id/product_info_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/product_info_secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="грамм"
+            android:paddingHorizontal="16dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@+id/product_info_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/product_info_gramms"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/product_info_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Добавить"
+            android:layout_margin="16dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product_info_kcal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
