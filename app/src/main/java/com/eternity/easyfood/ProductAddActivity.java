@@ -1,8 +1,10 @@
 package com.eternity.easyfood;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.eternity.easyfood.ui.product_info.ProductInfoFragment;
 import com.eternity.easyfood.utils.Product;
 import com.eternity.easyfood.utils.adapters.EatingListAdapter;
 import com.eternity.easyfood.utils.adapters.SearchProductAdapter;
@@ -32,7 +34,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class ProductAddActivity extends AppCompatActivity {
+public class ProductAddActivity extends AppCompatActivity implements SearchProductAdapter.ProductClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,7 @@ public class ProductAddActivity extends AppCompatActivity {
 
         ArrayList<Product> pr;
         pr = Product.createProductsList(8);
-        SearchProductAdapter adapter = new SearchProductAdapter(pr);
+        SearchProductAdapter adapter = new SearchProductAdapter(pr, this);
         rv.setAdapter(adapter);
 
 //        SearchView searchView = (SearchView) findViewById(R.id.searchbar);
@@ -113,5 +115,10 @@ public class ProductAddActivity extends AppCompatActivity {
     public void goToBarcodeScanActivity(View view) {
         Intent intent = new Intent(this, BarcodeScanActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void addProductClicked() {
+        ProductInfoFragment.newInstance().show(getSupportFragmentManager(), null);
     }
 }

@@ -21,10 +21,15 @@ import java.util.ArrayList;
 
 public class SearchProductAdapter extends RecyclerView.Adapter<SearchProductAdapter.SearchViewHolder> {
     private ArrayList<Product> mResults = new ArrayList<>();
-    private Context mContext;
+    private ProductClickListener mListener;
 
-    public SearchProductAdapter(ArrayList<Product> products) {
+    public interface ProductClickListener {
+        void addProductClicked();
+    }
+
+    public SearchProductAdapter(ArrayList<Product> products, ProductClickListener productClickListener) {
         mResults = products;
+        mListener = productClickListener;
     }
 
     public class SearchViewHolder extends RecyclerView.ViewHolder {
@@ -59,20 +64,7 @@ public class SearchProductAdapter extends RecyclerView.Adapter<SearchProductAdap
 
         holder.productName.setText("Banana hey!");
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppCompatActivity productAddActivity = (AppCompatActivity) v.getContext();
-                ProductInfoFragment productInfoFragment = new ProductInfoFragment();
-
-                productAddActivity
-                        .getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.product_add_activity, productInfoFragment)
-                        .addToBackStack("PRODUCT_INFO")
-                        .commit();
-            }
-        });
+        holder.itemView.setOnClickListener(v -> mListener.addProductClicked());
     }
 
     @Override
